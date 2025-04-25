@@ -1,84 +1,120 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const contractGeneratorForm = document.getElementById('contractGenerator');
-    const generatedContract = document.getElementById('generatedContract');
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Contrato de Locação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f7f7;
+        }
 
-    contractGeneratorForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        generateContract();
-    });
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-    function generateContract() {
-        const ownerName = document.getElementById('ownerName').value;
-        const nationality = document.getElementById('nationality').value;
-        const maritalStatus = document.getElementById('maritalStatus').value;
-        const occupation = document.getElementById('occupation').value;
-        const rgNumber = document.getElementById('rgNumber').value;
-        const cpfNumber = document.getElementById('cpfNumber').value;
-        const ownerAddress = document.getElementById('ownerAddress').value;
-        const tenantName = document.getElementById('tenantName').value;
-        const tenantCPF = document.getElementById('tenantCPF').value;
-        const tenantRG = document.getElementById('tenantRG').value;
-        const tenantAddress = document.getElementById('tenantAddress').value;
-        const rentalValue = document.getElementById('rentalValue').value;
-        const rentalValueText = document.getElementById('rentalValueText').value;
-        const propertyAddress = document.getElementById('propertyAddress').value;
-        const startDate = document.getElementById('startDate').value;
-        const endDate = document.getElementById('endDate').value;
-        const dueDate = document.getElementById('dueDate').value;
-        const signatureDate = document.getElementById('signatureDate').value;
+        form {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
 
-        const contractText = `    
-CONTRATO DE LOCAÇÃO DE IMÓVEL RESIDENCIAL
+        label {
+            font-weight: bold;
+        }
 
-LOCADOR: ${ownerName}, ${nationality}, ${maritalStatus}, ${occupation}, RG nº ${rgNumber}, CPF nº ${cpfNumber}, residente à ${ownerAddress}.
+        input, select, textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
 
-LOCATÁRIO: ${tenantName}, portador do RG nº ${tenantRG} e do CPF nº ${tenantCPF}, residente à ${tenantAddress}.
+        button {
+            background-color: #2d89ef;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-As partes acima identificadas têm entre si justo e contratado o que segue:
+        #generatedContract {
+            margin-top: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
 
-CLÁUSULA 1ª - DO OBJETO: O presente contrato tem como objeto o imóvel residencial situado à ${propertyAddress}, que será utilizado exclusivamente para fins de moradia do LOCATÁRIO.
+    <h1>Gerador de Contrato de Locação</h1>
 
-CLÁUSULA 2ª - DO VALOR DO ALUGUEL: O aluguel mensal será de R$ ${rentalValue} (${rentalValueText}), com vencimento todo dia ${dueDate} de cada mês.
+    <form id="contractGenerator">
+        <h2>Dados do Locador</h2>
+        <label>Nome:</label>
+        <input type="text" id="ownerName" required>
+        <label>Nacionalidade:</label>
+        <input type="text" id="nationality" required>
+        <label>Estado Civil:</label>
+        <input type="text" id="maritalStatus" required>
+        <label>Profissão:</label>
+        <input type="text" id="occupation" required>
+        <label>RG:</label>
+        <input type="text" id="rgNumber" required>
+        <label>CPF:</label>
+        <input type="text" id="cpfNumber" required>
+        <label>Endereço do Locador:</label>
+        <input type="text" id="propertyAddressFull" required>
 
-CLÁUSULA 3ª - DO PRAZO: O prazo da locação é de ${startDate} a ${endDate}, podendo ser renovado conforme legislação vigente.
+        <h2>Dados do Locatário</h2>
+        <label>Nome:</label>
+        <input type="text" id="tenantName" required>
+        <label>Nacionalidade:</label>
+        <input type="text" id="tenantNationality" required>
+        <label>Estado Civil:</label>
+        <input type="text" id="tenantMaritalStatus" required>
+        <label>Profissão:</label>
+        <input type="text" id="tenantOccupation" required>
+        <label>RG:</label>
+        <input type="text" id="tenantRg" required>
+        <label>CPF:</label>
+        <input type="text" id="tenantCpf" required>
 
-CLÁUSULA 4ª - DAS OBRIGAÇÕES DO LOCADOR: O LOCADOR se compromete a entregar o imóvel em boas condições de uso, e a garantir seu uso pacífico durante a vigência do contrato.
+        <h2>Dados do Imóvel</h2>
+        <label>Tipo do Imóvel:</label>
+        <input type="text" id="propertyType" required>
+        <label>Endereço Completo do Imóvel:</label>
+        <input type="text" id="propertyAddressFullImovel" required>
+        <label>Valor do Aluguel (em números):</label>
+        <input type="text" id="rentalValue" required>
+        <label>Valor do Aluguel (por extenso):</label>
+        <input type="text" id="rentalValueText" required>
+        <label>Data de Início da Locação:</label>
+        <input type="date" id="startDate" required>
+        <label>Data de Término da Locação:</label>
+        <input type="date" id="endDate" required>
+        <label>Valor da Caução:</label>
+        <input type="text" id="securityDeposit" required>
+        <label>Periodicidade do Reajuste (ex: Anual):</label>
+        <input type="text" id="reajuste" required>
+        <label>Data de Assinatura:</label>
+        <input type="date" id="signatureDate" required>
 
-CLÁUSULA 5ª - DAS OBRIGAÇÕES DO LOCATÁRIO: O LOCATÁRIO compromete-se a conservar o imóvel, pagar pontualmente o aluguel e encargos, e devolvê-lo nas mesmas condições recebidas, salvo desgastes naturais pelo uso.
+        <button type="submit">Gerar Contrato</button>
+    </form>
 
-CLÁUSULA 6ª - DO REAJUSTE: O valor do aluguel poderá ser reajustado anualmente, conforme índice previsto em lei.
+    <div id="generatedContract"></div>
 
-CLÁUSULA 7ª - DAS PENALIDADES: O descumprimento de qualquer cláusula deste contrato sujeitará a parte infratora às penalidades legais.
-
-CLÁUSULA 8ª - DO FORO: Fica eleito o foro da comarca de Terra Roxa - PR para dirimir quaisquer dúvidas ou litígios decorrentes deste contrato.
-
-E por estarem justos e contratados, assinam o presente instrumento.
-
-Terra Roxa - PR, ${signatureDate}.
-
-LOCADOR:
-
-_________________________________
-${ownerName}
-
-LOCATÁRIO:
-
-_________________________________
-${tenantName}
-
-Testemunhas:
-
-_________________________________ - CPF: __________________
-
-_________________________________ - CPF: __________________
-`;
-
-        const contractWithStyles = `
-        <div style="font-family: Arial, sans-serif; font-size: 14px; text-align: justify; margin-left: 5cm; margin-right: 1cm; margin-top: 2cm; margin-bottom: 2cm;">
-            ${contractText.replace(/\n/g, '<br>')}
-        </div>
-        `;
-
-        generatedContract.innerHTML = contractWithStyles;
-    }
-});
+    <script src="contrato-locacao.js"></script>
+</body>
+</html>
