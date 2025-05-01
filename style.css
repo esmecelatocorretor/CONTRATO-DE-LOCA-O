@@ -1,11 +1,10 @@
-# Conteúdo do style.css
-style_css = """body {
+
+body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f2f5;
 }
-
 .container {
     width: 90%;
     max-width: 900px;
@@ -15,24 +14,20 @@ style_css = """body {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
-
 h1 {
     text-align: center;
     margin-bottom: 30px;
 }
-
 fieldset {
     border: 1px solid #ccc;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 6px;
 }
-
 legend {
     font-weight: bold;
     padding: 0 10px;
 }
-
 input[type="text"],
 input[type="date"] {
     width: calc(100% - 20px);
@@ -42,9 +37,8 @@ input[type="date"] {
     border-radius: 4px;
     border: 1px solid #ccc;
 }
-
 button {
-    width: 100%;
+    width: auto;
     padding: 12px;
     background-color: #2a8ee0;
     color: white;
@@ -53,14 +47,11 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
 button:hover {
     background-color: #1c6db3;
 }
-
 .contract-output {
     margin-top: 40px;
     padding: 20px;
     border-top: 2px solid #333;
 }
-"""
