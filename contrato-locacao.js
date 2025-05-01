@@ -37,56 +37,64 @@ document.getElementById("contractGenerator").addEventListener("submit", function
 <h2>CONTRATO DE LOCAÇÃO RESIDENCIAL</h2>
 
 <strong>IDENTIFICAÇÃO DAS PARTES</strong><br>
-LOCADOR: ${ownerName}, ${nationality}, ${occupation}, ${maritalStatus}, portador do RG nº ${rgNumber}, inscrito no CPF nº ${cpfNumber}, residente à ${propertyAddressFull}.<br><br>
+LOCADOR(A): ${ownerName}, ${nationality}, ${occupation}, ${maritalStatus}, portador do RG nº ${rgNumber}, inscrito no CPF nº ${cpfNumber}, residente à ${propertyAddressFull}.<br><br>
 
-LOCATÁRIA: ${tenantName}, ${tenantNationality}, ${tenantOccupation}, ${tenantMaritalStatus}, portador(a) do RG nº ${tenantRg}, inscrito(a) no CPF nº ${tenantCpf}, residente em Terra Roxa PR.<br><br>
+LOCATÁRIO(A): ${tenantName}, ${tenantNationality}, ${tenantOccupation}, ${tenantMaritalStatus}, portador(a) do RG nº ${tenantRg}, inscrito(a) no CPF nº ${tenantCpf}, residente em Terra Roxa PR.<br><br>
 
-<strong>DO IMÓVEL</strong><br>
-O LOCADOR dá em locação ao LOCATÁRIO o imóvel ${propertyType}, situado à ${propertyAddressFullImovel}.<br><br>
+<strong>CLÁUSULA 01 - DO IMÓVEL</strong><br>
+O LOCADOR(A) dá em locação ao LOCATÁRIO(A) o imóvel ${propertyType}, situado à ${propertyAddressFullImovel}.<br><br>
 
-<strong>DO PRAZO</strong><br>
+<strong>CLÁUSULA 02 – DO PRAZO </strong><br>
 O prazo de locação é de 12 (doze) meses, com início em ${startDate} e término em ${endDate}.<br><br>
 
-<strong>DA RENOVAÇÃO</strong><br>
+<strong>CLÁUSULA 03 – DA RENOVAÇÃO </strong><br>
 A renovação será automática para mais 12 (doze) meses, se nenhuma das partes se manifestar em contrário.<br><br>
 
-<strong>DO ALUGUEL</strong><br>
-O aluguel mensal é de R$ ${rentalValue} (${rentalValueText}), a ser pago até o dia 05 de cada mês mediante depósito em conta indicada pelo LOCADOR ou via Pix (CPF).<br><br>
+<strong>CLÁUSULA 04 – DO ALUGUEL </strong><br>
+O aluguel mensal é de R$ ${rentalValue} (${rentalValueText}), a ser pago até o dia 05 de cada mês mediante depósito em conta indicada pelo LOCADOR(A) ou via Pix (CPF).<br><br>
 
-<strong>DO REAJUSTE</strong><br>
+<strong>CLÁUSULA 05 – DO REAJUSTE</strong><br>
 O aluguel será reajustado conforme periodicidade ${reajuste}.<br><br>
 
-<strong>DAS DESPESAS</strong><br>
-O LOCATÁRIO é responsável pelas despesas de consumo: água, energia elétrica, esgoto e taxas relativas ao imóvel.<br><br>
+<strong>CLÁUSULA 06 – DAS DESPESAS</strong><br>
+O LOCATÁRIO(A) é responsável pelas despesas de consumo: água, energia elétrica, esgoto e taxas relativas ao imóvel, ou ainda serviços contratados pelo(a) Inquilino(a) .<br><br>
 
-<strong>DO USO DO IMÓVEL</strong><br>
-O imóvel será destinado exclusivamente à residência do LOCATÁRIO e familiares, sendo vedada a sublocação ou cessão sem autorização expressa do LOCADOR.<br><br>
+<strong>CLÁUSULA 07 – DO USO DO IMÓVEL</strong><br>
+O imóvel será destinado exclusivamente à residência do LOCATÁRIO(A) e familiares, sendo vedada a sublocação ou cessão sem autorização expressa do LOCADOR(A).<br><br>
 
-<strong>DA CONSERVAÇÃO</strong><br>
-O LOCATÁRIO compromete-se a conservar o imóvel em bom estado, respondendo por danos decorrentes de uso indevido.<br><br>
+<strong>CLÁUSULA 08 – DA CONSERVAÇÃO</strong><br>
+O LOCATÁRIO(A) compromete-se a conservar o imóvel em bom estado, respondendo por danos decorrentes de uso indevido.<br><br>
 
-<strong>DA MULTA POR INADIMPLÊNCIA</strong><br>
+<strong>CLÁUSULA 09 – DA MULTA POR INADIMPLÊNCIA</strong><br>
 O atraso no pagamento do aluguel acarretará multa de 10%, juros de 1% ao mês e correção monetária.<br><br>
 
-<strong>DA RESCISÃO</strong><br>
+<strong>CLÁUSULA 10 – DA RESCISÃO</strong><br>
 Em caso de descumprimento ou rescisão antecipada, a parte infratora pagará multa equivalente a três aluguéis mensais.<br><br>
 
-<strong>DAS COMUNICAÇÕES</strong><br>
+<strong>CLÁUSULA 11 – DAS COMUNICAÇÕES</strong><br>
 Todas as comunicações deverão ser feitas por escrito.<br><br>
+
+<strong>CLÁUSULA 12 – OUTRAS INFORMAÇÕES </strong><br>
+A LOCATÁRIO(A) tem ciência de que o imóvel ora locado encontra-se 
+disponível para venda, ficando desde já autorizada a entrada de terceiros 
+que demonstrarem interesse na compra. 
 
 <strong>DO FORO</strong><br>
 Fica eleito o foro da Comarca de Terra Roxa - PR para dirimir quaisquer dúvidas oriundas deste contrato.<br><br>
 
 Terra Roxa - PR, ${assinaturaFormatada}.<br><br>
 
-_________________________________________<br>
-LOCADOR: ${ownerName}<br><br>
 
 _________________________________________<br>
-LOCATÁRIO: ${tenantName}<br><br>
+LOCADOR(A): ${ownerName}<br><br>
+
+
+_________________________________________<br>
+LOCATÁRIO(A): ${tenantName}<br><br>
 
 <strong>Testemunhas:</strong><br>
 1. Nome: ____________________________________ CPF: ______________________<br>
+
 2. Nome: ____________________________________ CPF: ______________________
 `;
 
