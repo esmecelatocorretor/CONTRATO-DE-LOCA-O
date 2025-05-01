@@ -151,3 +151,59 @@ document.getElementById("contractGenerator").addEventListener("submit", function
         document.body.removeChild(container);
     });
 });
+
+
+document.getElementById("generateDocx").addEventListener("click", function () {
+    const { Document, Packer, Paragraph, TextRun } = window.docx;
+
+    const getValue = id => document.getElementById(id).value;
+    const signatureDate = new Date(getValue("signatureDate")).toLocaleDateString("pt-BR", {
+        day: '2-digit', month: 'long', year: 'numeric'
+    });
+
+    const doc = new Document({
+        sections: [{
+            properties: {},
+            children: [
+                new Paragraph({
+                    children: [new TextRun({ text: "CONTRATO DE LOCAÇÃO RESIDENCIAL", bold: true, size: 28 })],
+                    alignment: "center",
+                    spacing: { after: 400 }
+                }),
+                new Paragraph(`LOCADOR(A): ${getValue("ownerName")}, ${getValue("nationality")}, ${getValue("occupation")}, ${getValue("maritalStatus")}, RG nº ${getValue("rgNumber")}, CPF nº ${getValue("cpfNumber")}, residente à ${getValue("propertyAddressFull")}.`),
+                new Paragraph(`LOCATÁRIO(A): ${getValue("tenantName")}, ${getValue("tenantNationality")}, ${getValue("tenantOccupation")}, ${getValue("tenantMaritalStatus")}, RG nº ${getValue("tenantRg")}, CPF nº ${getValue("tenantCpf")}, residente em Terra Roxa - PR.`),
+                new Paragraph(""),
+                new Paragraph(`CLÁUSULA 01 - DO IMÓVEL: O LOCADOR(A) dá em locação o imóvel ${getValue("propertyType")}, situado à ${getValue("propertyAddressFullImovel")}.`),
+                new Paragraph(`CLÁUSULA 02 - DO PRAZO: 12 meses, de ${getValue("startDate")} a ${getValue("endDate")}.`),
+                new Paragraph(`CLÁUSULA 03 - DA RENOVAÇÃO: Automática por mais 12 meses salvo manifestação contrária.`),
+                new Paragraph(`CLÁUSULA 04 - DO ALUGUEL: R$ ${getValue("rentalValue")} (${getValue("rentalValueText")}), até dia 05 de cada mês.`),
+                new Paragraph(`CLÁUSULA 05 - DO REAJUSTE: Conforme periodicidade ${getValue("reajuste")}.`),
+                new Paragraph(`CLÁUSULA 06 - DAS DESPESAS: Água, energia, esgoto e taxas.`),
+                new Paragraph(`CLÁUSULA 07 - DO USO DO IMÓVEL: Uso residencial pelo LOCATÁRIO e familiares.`),
+                new Paragraph(`CLÁUSULA 08 - DA CONSERVAÇÃO: Manutenção e responsabilidade por danos.`),
+                new Paragraph(`CLÁUSULA 09 - DA MULTA POR INADIMPLÊNCIA: Multa 10%, juros 1%/mês.`),
+                new Paragraph(`CLÁUSULA 10 - DA RESCISÃO: Multa equivalente a três aluguéis.`),
+                new Paragraph(`CLÁUSULA 11 - DAS COMUNICAÇÕES: Todas por escrito.`),
+                new Paragraph(`CLÁUSULA 12 - DO FORO: Comarca de Terra Roxa - PR.`),
+                new Paragraph(""),
+                new Paragraph(`Terra Roxa - PR, ${signatureDate}.`),
+                new Paragraph(""),
+                new Paragraph(`LOCADOR(A): ${getValue("ownerName")}`),
+                new Paragraph(`LOCATÁRIO(A): ${getValue("tenantName")}`),
+                new Paragraph(""),
+                new Paragraph("Testemunhas:"),
+                new Paragraph("1. Nome: _______________________________ CPF: ____________________"),
+                new Paragraph("2. Nome: _______________________________ CPF: ____________________")
+            ]
+        }]
+    });
+
+    Packer.toBlob(doc).then(blob => {
+        const fileName = "contrato-locacao.docx";
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        link.click();
+        URL.revokeObjectURL(link.href);
+    });
+});
