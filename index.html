@@ -1,59 +1,82 @@
-# Conteúdo do index.html
-index_html = """<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Gerador de Contrato de Locação</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Contrato</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Gerador de Contrato de Locação</h1>
-        <form id="contractGenerator">
-            <fieldset>
-                <legend>Dados do Locador</legend>
-                <input type="text" id="ownerName" placeholder="Nome completo do locador" required>
-                <input type="text" id="nationality" placeholder="Nacionalidade" required>
-                <input type="text" id="maritalStatus" placeholder="Estado civil" required>
-                <input type="text" id="occupation" placeholder="Profissão" required>
-                <input type="text" id="rgNumber" placeholder="RG" required>
-                <input type="text" id="cpfNumber" placeholder="CPF" required>
-                <input type="text" id="propertyAddressFull" placeholder="Endereço completo do locador" required>
-            </fieldset>
+    <h2>Gerador de Contrato de Locação</h2>
+    <form id="contractGenerator">
+        <label for="ownerName">Nome do Locador:</label>
+        <input type="text" id="ownerName" required>
 
-            <fieldset>
-                <legend>Dados do Locatário</legend>
-                <input type="text" id="tenantName" placeholder="Nome completo do locatário" required>
-                <input type="text" id="tenantNationality" placeholder="Nacionalidade" required>
-                <input type="text" id="tenantMaritalStatus" placeholder="Estado civil" required>
-                <input type="text" id="tenantOccupation" placeholder="Profissão" required>
-                <input type="text" id="tenantRg" placeholder="RG" required>
-                <input type="text" id="tenantCpf" placeholder="CPF" required>
-            </fieldset>
+        <label for="nationality">Nacionalidade:</label>
+        <input type="text" id="nationality" required>
 
-            <fieldset>
-                <legend>Informações do Imóvel</legend>
-                <input type="text" id="propertyType" placeholder="Tipo do imóvel (ex: casa, apartamento)" required>
-                <input type="text" id="propertyAddressFullImovel" placeholder="Endereço completo do imóvel" required>
-            </fieldset>
+        <label for="maritalStatus">Estado Civil:</label>
+        <input type="text" id="maritalStatus" required>
 
-            <fieldset>
-                <legend>Detalhes da Locação</legend>
-                <input type="text" id="rentalValue" placeholder="Valor do aluguel (número)" required>
-                <input type="text" id="rentalValueText" placeholder="Valor por extenso" required>
-                <input type="date" id="startDate" required>
-                <input type="date" id="endDate" required>
-                <input type="text" id="reajuste" placeholder="Periodicidade do reajuste (ex: anual)" required>
-                <input type="date" id="signatureDate" required>
-            </fieldset>
+        <label for="occupation">Profissão:</label>
+        <input type="text" id="occupation" required>
 
-            <button type="submit">Gerar Contrato</button>
-        </form>
+        <label for="rgNumber">RG:</label>
+        <input type="text" id="rgNumber" required>
 
-        <div id="generatedContract" class="contract-output"></div>
-    </div>
-    <script src="contrato-locacao.js"></script>
+        <label for="cpfNumber">CPF:</label>
+        <input type="text" id="cpfNumber" required>
+
+        <label for="propertyAddressFull">Endereço do Locador:</label>
+        <input type="text" id="propertyAddressFull" required>
+
+        <label for="tenantName">Nome do Locatário:</label>
+        <input type="text" id="tenantName" required>
+
+        <label for="tenantNationality">Nacionalidade do Locatário:</label>
+        <input type="text" id="tenantNationality" required>
+
+        <label for="tenantMaritalStatus">Estado Civil do Locatário:</label>
+        <input type="text" id="tenantMaritalStatus" required>
+
+        <label for="tenantOccupation">Profissão do Locatário:</label>
+        <input type="text" id="tenantOccupation" required>
+
+        <label for="tenantRg">RG do Locatário:</label>
+        <input type="text" id="tenantRg" required>
+
+        <label for="tenantCpf">CPF do Locatário:</label>
+        <input type="text" id="tenantCpf" required>
+
+        <label for="propertyType">Tipo do Imóvel:</label>
+        <input type="text" id="propertyType" required>
+
+        <label for="propertyAddressFullImovel">Endereço do Imóvel:</label>
+        <input type="text" id="propertyAddressFullImovel" required>
+
+        <label for="rentalValue">Valor do Aluguel:</label>
+        <input type="text" id="rentalValue" required>
+
+        <label for="rentalValueText">Valor por extenso:</label>
+        <input type="text" id="rentalValueText" required>
+
+        <label for="startDate">Data de Início:</label>
+        <input type="date" id="startDate" required>
+
+        <label for="endDate">Data de Término:</label>
+        <input type="date" id="endDate" required>
+
+        <label for="reajuste">Periodicidade de Reajuste:</label>
+        <input type="text" id="reajuste" required>
+
+        <label for="signatureDate">Data de Assinatura:</label>
+        <input type="date" id="signatureDate" required>
+
+        <button type="submit">Gerar Contrato</button>
+    </form>
+
+    <div id="generatedContract"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
-"""
