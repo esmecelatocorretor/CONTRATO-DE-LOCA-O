@@ -2,57 +2,141 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Contrato de Locação</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #generatedContract {
+            background-color: white;
+            padding: 40px;
+            margin-top: 30px;
+            font-family: "Times New Roman", serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+                margin: 0;
+                padding: 0;
+            }
+
+            @page {
+                size: A4;
+                margin: 3cm 2.5cm 2.5cm 3cm; /* ABNT: 3cm esquerda/superior, 2.5cm direita/inferior */
+            }
+
+            form, button {
+                display: none !important;
+            }
+
+            #generatedContract {
+                border: none;
+                padding: 0;
+                font-family: "Times New Roman", serif;
+                font-size: 12pt;
+                text-align: justify;
+                white-space: pre-wrap;
+            }
+
+            h2 {
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 14pt;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <h1>Gerador de Contrato de Locação</h1>
 
     <form id="contractGenerator">
-        <fieldset>
-            <legend><strong>Dados do Locador</strong></legend>
-            <label>Nome: <input type="text" id="ownerName" required></label><br>
-            <label>Nacionalidade: <input type="text" id="nationality" required></label><br>
-            <label>Estado civil: <input type="text" id="maritalStatus" required></label><br>
-            <label>Profissão: <input type="text" id="occupation" required></label><br>
-            <label>RG: <input type="text" id="rgNumber" required></label><br>
-            <label>CPF: <input type="text" id="cpfNumber" required></label><br>
-            <label>Endereço completo: <input type="text" id="propertyAddressFull" required></label><br>
-        </fieldset>
+        <h2>Dados do Locador</h2>
+        <label>Nome:</label><input type="text" id="ownerName" required>
+        <label>Nacionalidade:</label><input type="text" id="nationality" required>
+        <label>Estado Civil:</label><input type="text" id="maritalStatus" required>
+        <label>Profissão:</label><input type="text" id="occupation" required>
+        <label>RG:</label><input type="text" id="rgNumber" required>
+        <label>CPF:</label><input type="text" id="cpfNumber" required>
+        <label>Endereço Completo:</label><input type="text" id="propertyAddressFull" required>
 
-        <fieldset>
-            <legend><strong>Dados do Locatário</strong></legend>
-            <label>Nome: <input type="text" id="tenantName" required></label><br>
-            <label>Nacionalidade: <input type="text" id="tenantNationality" required></label><br>
-            <label>Estado civil: <input type="text" id="tenantMaritalStatus" required></label><br>
-            <label>Profissão: <input type="text" id="tenantOccupation" required></label><br>
-            <label>RG: <input type="text" id="tenantRg" required></label><br>
-            <label>CPF: <input type="text" id="tenantCpf" required></label><br>
-        </fieldset>
+        <h2>Dados do Locatário</h2>
+        <label>Nome:</label><input type="text" id="tenantName" required>
+        <label>Nacionalidade:</label><input type="text" id="tenantNationality" required>
+        <label>Estado Civil:</label><input type="text" id="tenantMaritalStatus" required>
+        <label>Profissão:</label><input type="text" id="tenantOccupation" required>
+        <label>RG:</label><input type="text" id="tenantRg" required>
+        <label>CPF:</label><input type="text" id="tenantCpf" required>
 
-        <fieldset>
-            <legend><strong>Informações do Imóvel e Contrato</strong></legend>
-            <label>Tipo de imóvel: <input type="text" id="propertyType" required></label><br>
-            <label>Endereço do imóvel: <input type="text" id="propertyAddressFullImovel" required></label><br>
-            <label>Valor do aluguel (R$): <input type="number" id="rentalValue" required></label><br>
-            <label>Valor por extenso: <input type="text" id="rentalValueText" required></label><br>
-            <label>Data de início: <input type="date" id="startDate" required></label><br>
-            <label>Data de término: <input type="date" id="endDate" required></label><br>
-            <label>Caução (R$): <input type="text" id="securityDeposit"></label><br>
-            <label>Periodicidade do reajuste: <input type="text" id="reajuste" required></label><br>
-            <label>Data da assinatura: <input type="date" id="signatureDate" required></label><br>
-        </fieldset>
+        <h2>Dados do Imóvel</h2>
+        <label>Tipo de Imóvel:</label><input type="text" id="propertyType" required>
+        <label>Endereço Completo do Imóvel:</label><input type="text" id="propertyAddressFullImovel" required>
+        <label>Valor do Aluguel (R$):</label><input type="text" id="rentalValue" required>
+        <label>Valor por extenso:</label><input type="text" id="rentalValueText" required>
+        <label>Data de Início:</label><input type="date" id="startDate" required>
+        <label>Data de Término:</label><input type="date" id="endDate" required>
+        <label>Periodicidade de Reajuste (ex: anual):</label><input type="text" id="reajuste" required>
+        <label>Data de Assinatura:</label><input type="date" id="signatureDate" required>
 
         <button type="submit">Gerar Contrato</button>
     </form>
 
-    <hr>
+    <div id="generatedContract"></div>
 
-    <div id="generatedContract" style="padding: 20px; border: 1px solid #ccc; margin-bottom: 20px;"></div>
-    <button id="downloadPdfBtn" style="display: none;">Baixar contrato em PDF</button>
-
-    <!-- Bibliotecas -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="contrato-locacao.js"></script>
 </body>
 </html>
