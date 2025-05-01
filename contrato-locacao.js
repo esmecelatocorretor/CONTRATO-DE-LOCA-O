@@ -100,4 +100,22 @@ LOCATÁRIO(A): ${tenantName}<br><br>
 
     // Exibição do contrato gerado
     document.getElementById("generatedContract").innerHTML = contrato;
+    // Mostrar o botão de download
+document.getElementById("downloadPdfBtn").style.display = "block";
+
+// Adiciona evento ao botão para gerar o PDF
+document.getElementById("downloadPdfBtn").addEventListener("click", function () {
+    const element = document.getElementById("generatedContract");
+
+    const opt = {
+        margin:       0.5,
+        filename:     'contrato-locacao.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(opt).from(element).save();
+});
+
 });
