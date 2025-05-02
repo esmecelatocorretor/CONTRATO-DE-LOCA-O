@@ -71,27 +71,27 @@ document.getElementById("contractGenerator").addEventListener("submit", function
 
         <p><strong>CLÁUSULA 01 - DO IMÓVEL</strong></p>
 
-        <p>O LOCADOR(A) dá em locação ao LOCATÁRIO(A) o imóvel ${propertyType}, situado à ${propertyAddressFullImovel}.</p>
+        <p>O LOCADOR(A) dá em locação ao LOCATÁRIO(A) o imóvel ${propertyType}, situado à ${propertyAddressFullImovel}.com todos os seus acessórios, instalações e pertences.</p>
 
         <p><strong>CLÁUSULA 02 – DO PRAZO</strong></p>
 
-        <p>O prazo de locação é de 12 (doze) meses, com início em ${startDate} e término em ${endDate}.</p>
+        <p>O prazo de locação é de 12 (doze) meses, com início em ${startDate} e término em ${endDate}, conforme art. 4º da Lei nº 8.245/91.</p>
 
         <p><strong>CLÁUSULA 03 – DA RENOVAÇÃO</strong></p>
 
-        <p>A renovação será automática para mais 12 (doze) meses, se nenhuma das partes se manifestar em contrário.</p>
+        <p>Não havendo manifestação expressa de qualquer das partes até 30 (trinta) dias antes do término, o contrato será automaticamente prorrogado por igual período, sob as mesmas condições, nos termos do art. 47 da Lei nº 8.245/91.</p>
 
         <p><strong>CLÁUSULA 04 – DO ALUGUEL</strong></p>
 
-        <p>O aluguel mensal é de R$ ${rentalValue} (${rentalValueText}), a ser pago até o dia 05 de cada mês mediante depósito em conta indicada pelo LOCADOR(A) ou via Pix (CPF).</p>
+        <p>O aluguel mensal será de R$ ${rentalValue} (${rentalValueText}), a ser pago até o dia 05 de cada mês mediante depósito em conta indicada pelo LOCADOR(A) ou via Pix (CPF).</p>
 
         <p><strong>CLÁUSULA 05 – DO REAJUSTE</strong></p>
 
-        <p>O aluguel será reajustado conforme periodicidade ${reajuste}.</p>
+        <p>O aluguel será reajustado conforme periodicidade ${reajuste}, com base no índice IPCA ou outro índice oficial que o substitua, conforme autorizado pelo art. 18 da Lei do Inquilinato.</p>
 
         <p><strong>CLÁUSULA 06 – DAS DESPESAS</strong></p>
 
-        <p>O LOCATÁRIO(A) é responsável pelas despesas de consumo: água, energia elétrica, esgoto e taxas relativas ao imóvel.</p>
+        <p>O LOCATÁRIO(A) é responsável pelas despesas de consumo: água, energia elétrica, esgoto e taxas relativas ao imóvel, vem como outros serviços contratados pelo(a) Locatario(a), conforme art. 23, inciso VIII da Lei nº 8.245/91.</p>
 
         <p><strong>CLÁUSULA 07 – DO USO DO IMÓVEL</strong></p>
 
@@ -103,17 +103,25 @@ document.getElementById("contractGenerator").addEventListener("submit", function
 
         <p><strong>CLÁUSULA 09 – DA MULTA POR INADIMPLÊNCIA</strong></p>
 
-        <p>O atraso no pagamento do aluguel acarretará multa de 10%, juros de 1% ao mês e correção monetária.</p>
+        <p>O atraso no pagamento do aluguel acarretará multa de 10%, juros de 1% ao mês e correção monetária. conforme art. 396 do Código Civil.</p>
 
         <p><strong>CLÁUSULA 10 – DA RESCISÃO</strong></p>
 
-        <p>Em caso de descumprimento, a parte infratora pagará multa equivalente a três aluguéis mensais.</p>
+        <p>O descumprimento de qualquer cláusula deste contrato por qualquer das partes acarretará a sua rescisão, com a aplicação de multa no valor correspondente a três aluguéis mensais vigentes, sem prejuízo das perdas e danos. Nos termos do art. 4º da Lei nº 8.245/91, a desocupação antecipada pelo LOCATÁRIO(A) também enseja o pagamento da multa proporcional ao tempo restante do contrato.</p>
 
         <p><strong>CLÁUSULA 11 – DAS COMUNICAÇÕES</strong></p>
 
         <p>Todas as comunicações deverão ser feitas por escrito.</p>
 
-        <p><strong>CLÁUSULA 12 – DO FORO</strong></p>
+        <p><strong>CLÁUSULA 12 – DAS BENFEITORIAS</strong></p>
+        
+        <p>As benfeitorias realizadas no imóvel somente poderão ser indenizadas se previamente autorizadas por escrito pelo LOCADOR(A) e desde que não possam ser retiradas sem dano ao imóvel. Caso contrário, serão incorporadas ao bem locado sem direito à indenização ou retenção, nos termos do art. 35 da Lei nº 8.245/91.</p>
+
+        <p><strong>CLÁUSULA 13 – DO DIREITO DE PREFERÊNCIA</strong></p>
+        
+        <p>Em caso de venda do imóvel durante a vigência do contrato, o LOCATÁRIO(A) terá direito de preferência na aquisição, nos termos do art. 27 da Lei nº 8.245/91.</p>
+        
+        <p><strong>CLÁUSULA 14 – DO FORO</strong></p>
 
         <p>Fica eleito o foro da Comarca de Terra Roxa - PR para dirimir quaisquer dúvidas oriundas deste contrato.</p>
 
