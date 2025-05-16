@@ -91,7 +91,7 @@ document.getElementById("contractGenerator").addEventListener("submit", function
 
         <p><strong>CLÁUSULA 06 – DAS DESPESAS</strong></p>
 
-        <p>O LOCATÁRIO(A) é responsável pelas despesas de consumo: água, energia elétrica, esgoto e taxas relativas ao imóvel, vem como outros serviços contratados pelo(a) Locatario(a), conforme art. 23, inciso VIII da Lei nº 8.245/91.</p>
+        <p>O LOCATÁRIO(A) é responsável pelas despesas de consumo: água, energia elétrica, esgoto e taxas relativas ao imóvel, vem como outros serviços contratados pelo(a) LOCATÁRIO(A), conforme art. 23, inciso VIII da Lei nº 8.245/91.</p>
 
         <p><strong>CLÁUSULA 07 – DO USO DO IMÓVEL</strong></p>
 
